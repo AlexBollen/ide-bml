@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Box, Text, Button } from "@chakra-ui/react";
 
-const Output = () => {
+const Output = ({ code }) => {
   const [output, setOutput] = useState("");
 
   const executeFile = async () => {
     try {
       const response = await fetch("/api/execute", {
         method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: code })
       });
       const data = await response.json();
       setOutput(data.output || data.error);

@@ -59,7 +59,7 @@ const CodeEditor = () => {
             }
           />
         </Box>
-        <Output />
+        <Output code={value}/>
       </HStack>
     </Box>
   )
