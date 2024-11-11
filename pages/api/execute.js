@@ -3,7 +3,7 @@ import fs from 'fs'
 
 export default function handler(req, res) {
   if (req.method === "POST") {
-    const filePath = './pages/api/ejecutable'
+    const filePath = './pages/api/BMLang'
     const code = req.body.content
     handleSaveFile(code)
     exec(`${filePath} < ./pages/api/uploads/code.ml`, (error, stdout, stderr) => {
